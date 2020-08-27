@@ -7,8 +7,10 @@ if (_token) {
   localStorage.setItem("token", _token);
 }
 
+console.log(process.env.REACT_APP_API_URL)
+
 const api = axios.create({
-  baseURL: "https://api.spotify.com/v1",
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     "Content-Type": "application/json",
     Authorization: `Bearer ${localStorage.getItem("token")}`,
